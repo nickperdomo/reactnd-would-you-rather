@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { handleInitalData } from './actions/shared'
+import { handleInitalData } from '../actions/shared'
 import './App.css';
+import Home from './Home'
 
 class App extends Component {
   componentDidMount() {
@@ -11,9 +12,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       App
+        {this.props.loading === true
+          ? null
+          : <Home />
+        } 
       </div>
     );
+  }
+}
+
+function mapStateToProps({authedUser}) {
+  return {
+    loading: authedUser === null
   }
 }
 
