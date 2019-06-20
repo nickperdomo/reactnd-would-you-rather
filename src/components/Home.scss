@@ -1,3 +1,11 @@
+main {
+  padding-top: var(--navHeight);
+}
+
+.viewTitle {
+  margin: var(--navHeight) auto 0 auto;
+}
+
 .questionList {
   margin: 0 auto;
   padding: 0;

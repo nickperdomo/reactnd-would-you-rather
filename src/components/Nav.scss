@@ -1,0 +1,52 @@
+:root{
+  --navHeight: 45px;
+}
+
+
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background-color: #1A3657;
+  color: #fff;
+}
+
+.navInner {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-template-rows: 1fr;
+  max-width: 1024px;
+  width: 100%;
+  height: var(--navHeight);
+  margin: 0 auto;
+  font-size: .9em;
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    max-width: 375px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    list-style: none;
+    // padding: 0 25px;
+    flex-grow: 1;
+    line-height: var(--navHeight);
+  }
+}
+
+.signOutContainer {
+  display: flex;
+  justify-content: flex-end;
+  justify-items: stretch;
+  align-items: stretch;
+  line-height: var(--navHeight);
+
+  span {
+    margin-right: 10px;
+  }
+}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './Home.scss'
-import QuestionToggle from './QuestionToggle';
-import QuestionCard from './QuestionCard';
+import Nav from './Nav'
+import QuestionToggle from './QuestionToggle'
+import QuestionCard from './QuestionCard'
 
 class Home extends Component {
   state = {
@@ -41,20 +42,23 @@ class Home extends Component {
 
 
     return (
-      <main>
-        <h1 className='viewTitle'>Questions</h1>
-        <QuestionToggle 
-          questionFilter={this.state.questionFilter}
-          handleQuestionFilter={this.handleQuestionFilter} 
-        />
-        <ul className='questionList'>
-          {filteredQuestions.map((question) => (
-            <li key={question.id}>
-              <QuestionCard id={question.id} />
-            </li>
-          ))}
-        </ul>
-      </main>
+      <>
+        <Nav />
+        <main>
+          <h1 className='viewTitle'>Questions</h1>
+          <QuestionToggle 
+            questionFilter={this.state.questionFilter}
+            handleQuestionFilter={this.handleQuestionFilter} 
+          />
+          <ul className='questionList'>
+            {filteredQuestions.map((question) => (
+              <li key={question.id}>
+                <QuestionCard id={question.id} />
+              </li>
+            ))}
+          </ul>
+        </main>
+      </>
     )
   }
 }
