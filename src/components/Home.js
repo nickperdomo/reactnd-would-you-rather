@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './Home.scss'
+import QuestionToggle from './QuestionToggle';
 import QuestionCard from './QuestionCard';
 
 class Home extends Component {
@@ -42,28 +43,10 @@ class Home extends Component {
     return (
       <main>
         <h1 className='viewTitle'>Questions</h1>
-        <form>
-          <label>
-            <input
-              type='radio'
-              name='filter'
-              value='unanswered'
-              checked={this.state.questionFilter === 'unanswered'}
-              onChange={(e) => this.handleQuestionFilter(e.target.value)}
-            />
-            Unanswered
-          </label>
-          <label>
-            <input
-              type='radio'
-              name='filter'
-              value='answered'
-              checked={this.state.questionFilter === 'answered'}
-              onChange={(e) => this.handleQuestionFilter(e.target.value)}
-            />
-            Answered
-          </label>
-        </form>
+        <QuestionToggle 
+          questionFilter={this.state.questionFilter}
+          handleQuestionFilter={this.handleQuestionFilter} 
+        />
         <ul className='questionList'>
           {filteredQuestions.map((question) => (
             <li key={question.id}>
