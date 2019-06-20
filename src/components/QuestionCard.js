@@ -28,7 +28,7 @@ class QuestionCard extends Component {
               <span className='qOptions'>
                 {optionOne.text} 
                 <span className='qOptionOr'> or </span>
-                {optionTwo.text}
+                {optionTwo.text}?
               </span>
             </p>
             <button className='qBtn' type='button'>View Poll</button>
