@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
+import './QuestionCard.scss'
 
 class QuestionCard extends Component {
   render() {
@@ -17,34 +18,22 @@ class QuestionCard extends Component {
     } = this.props.question
 
     return (
-      <div>
-        <img src={avatar} alt={`${name}'s avatar`} />
-        <span>{name} asks:</span> 
-        <p>Would you rather&hellip;<br />
-          <span>{optionOne.text}</span> or
-          <span> {optionTwo.text}</span>
-        </p>
-        <button type='button'>View Poll</button>
-
-        {/* <form>
-          <label>
-            <input
-              type='radio'
-              name='filter'
-              value='Unanswered'
-              defaultChecked
-            />
-            Unanswered
-          </label>
-          <label>
-            <input
-              type='radio'
-              name='filter'
-              value='Answered'
-            />
-            Answered
-          </label>
-        </form> */}
+      <div className='qContainer'>
+        <img className='qAvatar' src={avatar} alt={`${name}'s avatar`} />
+        <div>
+          <span className='qAuthor'>{name} asks:</span>
+          <div className='qBubble'> 
+            <p>
+              <span className='qIntro'>Would you rather&hellip;</span>
+              <span className='qOptions'>
+                {optionOne.text} 
+                <span className='qOptionOr'> or </span>
+                {optionTwo.text}
+              </span>
+            </p>
+            <button className='qBtn' type='button'>View Poll</button>
+          </div>
+        </div>
       </div>
     )
   }

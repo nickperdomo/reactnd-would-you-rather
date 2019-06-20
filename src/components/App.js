@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleInitalData } from '../actions/shared'
-import './App.css';
+import './App.scss';
 import Home from './Home'
 
 class App extends Component {

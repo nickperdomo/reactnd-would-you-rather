@@ -1,0 +1,76 @@
+:root {
+  --avatarWidth: 50px;
+}
+
+.qContainer {
+  display: grid;
+  grid-template-columns: var(--avatarWidth) auto; 
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  max-width: 445px;
+  margin: 0 auto 40px auto;
+  padding: 0 1em 0 0;
+}
+
+.qAvatar {
+  display: inline-block;
+  width: var(--avatarWidth);
+  height: var(--avatarWidth);
+  border-radius: 50%;
+}
+
+.qAuthor {
+  display: block;
+  margin: 0 0 10px 0;
+  font-size: .9em;
+  text-align: left;
+}
+
+.qBubble {
+  position: relative;
+  padding: 30px 30px 40px 30px;
+  border: solid 1px #acacac;
+  border-radius: 16px;
+  text-align: left;
+
+  p {
+    margin: 0;
+    font-size: .9em;
+    font-style: italic;
+  }
+}
+
+.qIntro {
+  display: block;
+  margin-bottom: .08em;
+  color: #969696;
+}
+
+.qOptions {
+  display: block;
+  font-size: 1.4em;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.qOptionOr {
+  color: #969696;
+  font-weight: 500;
+}
+
+.qBtn {
+  position: absolute;
+  bottom: -17px;
+  right: -1em;
+  width: auto;
+  height: 44px;
+  padding: 0 1.8em;
+  border-radius: 22px;
+  background-color: #0d68cf;
+  appearance: none;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: .9em;
+  font-weight: bold;
+}
