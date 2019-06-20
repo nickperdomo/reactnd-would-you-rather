@@ -4,6 +4,16 @@ import './Home.scss'
 import QuestionCard from './QuestionCard';
 
 class Home extends Component {
+  state = {
+    questionFilter: 'unanswered'
+  }
+
+  handleQuestionFilter = (e) => {
+    this.setState(() => ({
+      questionFilter: e
+    }))
+  }
+
   render() {
     const {
       authedUser,
@@ -21,27 +31,25 @@ class Home extends Component {
         ? answered.push(questions[id])
         : unanswered.push(questions[id])
     })
-    console.log("answered: ", answered)
-    console.log("unanswered: ", unanswered)
-
-    // TODO: Make toggle a controlled component
-    const toggle = 'unanswered'
-    toggle === 'unanswered'
+    // console.log("answered: ", answered)
+    // console.log("unanswered: ", unanswered)
+    this.state.questionFilter === 'unanswered'
       ? filteredQuestions = unanswered
       : filteredQuestions = answered
       
 
 
     return (
-      <div>
+      <main>
         <h1 className='viewTitle'>Questions</h1>
         <form>
           <label>
             <input
               type='radio'
               name='filter'
-              value='Unanswered'
-              defaultChecked
+              value='unanswered'
+              checked={this.state.questionFilter === 'unanswered'}
+              onChange={(e) => this.handleQuestionFilter(e.target.value)}
             />
             Unanswered
           </label>
@@ -49,7 +57,9 @@ class Home extends Component {
             <input
               type='radio'
               name='filter'
-              value='Answered'
+              value='answered'
+              checked={this.state.questionFilter === 'answered'}
+              onChange={(e) => this.handleQuestionFilter(e.target.value)}
             />
             Answered
           </label>
@@ -61,7 +71,7 @@ class Home extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </main>
     )
   }
 }
