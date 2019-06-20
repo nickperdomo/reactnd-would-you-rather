@@ -67,8 +67,11 @@
   padding: 0 1.8em;
   border-radius: 22px;
   background-color: #0d68cf;
+  box-shadow: rgba(3,104,207,0.2) 0 3px 10px;
   appearance: none;
   outline: none;
+  user-select: none;
+  cursor: pointer;
   border: none;
   color: #fff;
   font-size: .9em;
