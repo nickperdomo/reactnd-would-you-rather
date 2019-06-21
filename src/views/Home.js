@@ -43,23 +43,20 @@ class Home extends Component {
 
 
     return (
-      <>
-        <Nav />
-        <main>
-          <h1 className='viewTitle'>Questions</h1>
-          <QuestionToggle 
-            questionFilter={this.state.questionFilter}
-            handleQuestionFilter={this.handleQuestionFilter} 
-          />
-          <ul className='questionList'>
-            {filteredQuestions.map((question) => (
-              <li key={question.id}>
-                <QuestionCard id={question.id} />
-              </li>
-            ))}
-          </ul>
-        </main>
-      </>
+      <main>
+        <h1 className='viewTitle'>Questions</h1>
+        <QuestionToggle 
+          questionFilter={this.state.questionFilter}
+          handleQuestionFilter={this.handleQuestionFilter} 
+        />
+        <ul className='questionList'>
+          {filteredQuestions.map((question) => (
+            <li key={question.id}>
+              <QuestionCard id={question.id} />
+            </li>
+          ))}
+        </ul>
+      </main>
     )
   }
 }
