@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './Home.scss'
-import Nav from './Nav'
-import QuestionToggle from './QuestionToggle'
-import QuestionCard from './QuestionCard'
+import Nav from '../components/Nav'
+import QuestionToggle from '../components/QuestionToggle'
+import QuestionCard from '../components/QuestionCard'
 
 class Home extends Component {
   state = {
