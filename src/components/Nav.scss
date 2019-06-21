@@ -2,7 +2,6 @@
   --navHeight: 45px;
 }
 
-
 nav {
   top: 0;
   left: 0;
@@ -40,13 +39,25 @@ nav {
 }
 
 .signOutContainer {
-  display: flex;
-  justify-content: flex-end;
-  justify-items: stretch;
-  align-items: stretch;
+  margin-left: auto;
+  padding-right: 13%;
   line-height: var(--navHeight);
 
-  span {
-    margin-right: 10px;
+  a {
+    display: flex;
+    justify-items: flex-end;
+    align-items: center;
   }
+
+  img {
+    display: inline-block;
+    width: calc( var(--navHeight) - 10px);
+    height: calc( var(--navHeight) - 10px);
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+}
+
+.navActiveView {
+  font-weight: 700;
 }
