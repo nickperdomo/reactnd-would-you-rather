@@ -6,3 +6,8 @@ main {
   max-width: 445px;
   margin: 0 auto;
 }
+
+a:any-link {
+  color: currentColor;
+  text-decoration: none;
+}
