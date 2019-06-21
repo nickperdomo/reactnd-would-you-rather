@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitalData } from '../actions/shared'
 import './App.scss';
@@ -8,6 +8,7 @@ import Home from './Home'
 import NewQuestion from './NewQuestion'
 import Leaderboard from './Leaderboard'
 import SignIn from './SignIn'
+import NotFound from './NotFound'
 
 class App extends Component {
   componentDidMount() {
@@ -21,10 +22,13 @@ class App extends Component {
           ? null
           : <>
               <Nav />
-              <Route exact path='/questions' component={Home} />
-              <Route exact path='/add' component={NewQuestion} />
-              <Route exact path='/leaderboard' component={Leaderboard} />
-              <Route exact path='/' component={SignIn} />
+              <Switch>
+                <Route exact path='/questions' component={Home} />
+                <Route exact path='/add' component={NewQuestion} />
+                <Route exact path='/leaderboard' component={Leaderboard} />
+                <Route exact path='/signin' component={SignIn} />
+                <Route component={NotFound} />
+              </Switch>
             </>
         } 
       </div>
