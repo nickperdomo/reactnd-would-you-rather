@@ -11,8 +11,9 @@ class Home extends Component {
   }
 
   handleQuestionFilter = (e) => {
+    const filter = e.target.value
     this.setState(() => ({
-      questionFilter: e
+      questionFilter: filter
     }))
   }
 

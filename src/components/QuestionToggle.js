@@ -16,7 +16,7 @@ class QuestionToggle extends Component {
               name='filter'
               value='unanswered'
               checked={questionFilter === 'unanswered'}
-              onChange={(e) => handleQuestionFilter(e.target.value)}
+              onChange={handleQuestionFilter}
             />
             Unanswered
           </label>
@@ -26,7 +26,7 @@ class QuestionToggle extends Component {
               name='filter'
               value='answered'
               checked={questionFilter === 'answered'}
-              onChange={(e) => handleQuestionFilter(e.target.value)}
+              onChange={handleQuestionFilter}
             />
             Answered
           </label>
