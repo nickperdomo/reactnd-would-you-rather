@@ -41,7 +41,7 @@ class Nav extends Component {
           </ul>
           <div className='signOutContainer'>
               <Link 
-                exact to="/"
+                to="/signin"
                 >
                   <span>Sign out</span>
                   <img src={users[authedUser].avatarURL} alt={`${users[authedUser].name}'s avatar`} />
