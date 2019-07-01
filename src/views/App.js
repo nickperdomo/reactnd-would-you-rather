@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
+import LoadingBar from 'react-redux-loading'
 import { handleInitalData } from '../actions/shared'
 import './App.scss';
 import Nav from '../components/Nav'
@@ -18,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <LoadingBar style={{backgroundColor: '#0d68cf'}}/>
         {this.props.loading === true
           ? null
           : <>
