@@ -1,5 +1,5 @@
 .App {
-  padding-top: var(--navHeight);
+  padding-top: calc(var(--navHeight) *2);
   text-align: center;
 }
 
