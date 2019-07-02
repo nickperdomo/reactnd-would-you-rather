@@ -9,6 +9,15 @@ nav {
   position: fixed;
   background-color: #1A3657;
   color: #fff;
+
+}
+
+.navLink {
+  color: #fff;
+  
+  &:visited {
+    color: #fff;
+  }
 }
 
 .navInner {
@@ -34,6 +43,7 @@ nav {
     list-style: none;
     flex-grow: 1;
     line-height: var(--navHeight);
+
   }
 }
 

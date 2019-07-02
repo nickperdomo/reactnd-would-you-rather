@@ -17,6 +17,7 @@ class Nav extends Component {
             <li key='home'>
               <NavLink 
                 exact to="/questions"
+                className="navLink"
                 activeClassName="navActiveView"
                 >
                   Home
@@ -25,6 +26,7 @@ class Nav extends Component {
             <li key='newQuestion'>
               <NavLink 
                 exact to="/add"
+                className="navLink"
                 activeClassName="navActiveView"
                 >
                   New Question
@@ -33,6 +35,7 @@ class Nav extends Component {
             <li key='leaderboard'>
               <NavLink 
                 exact to="/leaderboard"
+                className="navLink"
                 activeClassName="navActiveView"
                 >
                   Leaderboard
@@ -42,6 +45,7 @@ class Nav extends Component {
           <div className='signOutContainer'>
               <Link 
                 to="/signin"
+                className="navLink"
                 >
                   <span>Sign out</span>
                   <img src={users[authedUser].avatarURL} alt={`${users[authedUser].name}'s avatar`} />
