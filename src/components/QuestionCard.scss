@@ -46,7 +46,7 @@
   color: #969696;
 }
 
-.qOptions {
+.qOption {
   display: block;
   font-size: 1.4em;
   font-style: normal;
@@ -59,7 +59,9 @@
 }
 
 .qBtn {
+  display: flex;
   position: absolute;
+  align-items: center;
   bottom: -17px;
   right: -1em;
   width: auto;
@@ -76,4 +78,24 @@
   color: #fff;
   font-size: .9em;
   font-weight: bold;
+  line-height: .9em;
+}
+
+// Poll styling
+.pollChoice-label {
+  position: relative;
+  margin-left: 1em;
+  padding: .4em 0;
+
+  &:first-child {
+    border-bottom: solid 1px #acacac;
+  }
+
+  input {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -2em;
+
+  }
 }

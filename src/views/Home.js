@@ -52,7 +52,7 @@ class Home extends Component {
         <ul className='questionList'>
           {filteredQuestions.map((question) => (
             <li key={question.id}>
-              <QuestionCard id={question.id} />
+              <QuestionCard id={question.id} mode='question'/>
             </li>
           ))}
         </ul>

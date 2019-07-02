@@ -7,6 +7,7 @@ import './App.scss';
 import Nav from '../components/Nav'
 import Home from './Home'
 import NewQuestion from './NewQuestion'
+import Poll from './Poll'
 import Leaderboard from './Leaderboard'
 import SignIn from './SignIn'
 import NotFound from './NotFound'
@@ -27,6 +28,7 @@ class App extends Component {
               <Switch>
                 <Route exact path='/questions' component={Home} />
                 <Route exact path='/add' component={NewQuestion} />
+                <Route exact path='/questions/:question_id' component={Poll}/>
                 <Route exact path='/leaderboard' component={Leaderboard} />
                 <Route exact path='/signin' component={SignIn} />
                 <Route component={NotFound} />
@@ -34,7 +36,7 @@ class App extends Component {
             </>
         } 
       </div>
-    );
+    )
   }
 }
 
