@@ -3,8 +3,44 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { formatQuestion } from '../utils/helpers'
 import './QuestionCard.scss'
+import { cardMode } from '../views/shared'
+import { handleAddAnswer } from '../actions/questions'
 
 class QuestionCard extends Component {
+  state = {
+    selectedChoice: 'optionOne',
+    cardMode: cardMode.question
+  }
+
+  handleChoiceChange = (e) => {
+    const choice = e.target.value
+    this.setState(()=> ({
+      selectedChoice: choice
+    }))
+  }
+
+  handleVote = (e) => {
+    // TODO: Save choice to API
+    e.preventDefault()
+   const {
+     dispatch,
+     question,
+     authedUser,
+   } = this.props
+
+   const answer = this.state.selectedChoice
+
+   dispatch(handleAddAnswer({
+     authedUser,
+     qid: question.id,
+     answer,
+   }))
+    
+    // this.setState(()=> ({
+    //   mode: cardMode.pollResults
+    // }))
+  }
+  
   render() {
     // console.log(this.props)
     const authedUser = this.props.authedUser
@@ -17,6 +53,12 @@ class QuestionCard extends Component {
       optionOne,
       optionTwo,
     } = this.props.question
+    const { 
+      mode,
+      // handleVote,
+    } = this.props
+    const selectedChoice = this.state.selectedChoice
+    
 
     const questionCard = (
       <div className='qContainer'>
@@ -53,8 +95,8 @@ class QuestionCard extends Component {
                   type='radio'
                   name='choice'
                   value='optionOne'
-                  checked={true}
-                  // onChange={handleQuestionFilter}
+                  checked={selectedChoice === 'optionOne'}
+                  onChange={this.handleChoiceChange}
                 />
                 {`${optionOne.text}?`}
               </label>
@@ -63,25 +105,37 @@ class QuestionCard extends Component {
                   type='radio'
                   name='choice'
                   value='optionTwo'
-                  // checked={questionFilter === 'answered'}
-                  // onChange={handleQuestionFilter}
+                  checked={selectedChoice === 'optionTwo'}
+                  onChange={this.handleChoiceChange}
                 />
                 {`${optionTwo.text}?`}
               </label>
-              <button className='qBtn'>Vote</button>
+              <button
+                type='submit'
+                className='qBtn'
+                onClick={this.handleVote}
+                >
+                  Vote
+                </button>
             </form>
           </div>
         </div>
       </div>
     )
 
+    const pollResultsCard = (
+      <div>Poll Results</div>
+    )
+
 
     const displayCard = () => {
-      switch (this.props.mode) {
-        case 'question':
+      switch (mode) {
+        case cardMode.question:
           return questionCard
-        case 'poll':
-          return pollCard  
+        case cardMode.poll:
+          return pollCard 
+        case cardMode.pollResults:
+          return pollResultsCard    
         default:
           return questionCard
       }
