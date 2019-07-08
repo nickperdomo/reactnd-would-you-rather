@@ -1,0 +1,87 @@
+.pollChoice-label {
+  position: relative;
+  margin-left: 1.25em;
+  padding: .4em 0;
+  user-select: none;
+  cursor: pointer;
+
+  &:first-child {
+    border-bottom: solid 1px #DEDEDE;
+  }
+
+  input {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -2.4em;
+    appearance: none;
+
+    &:checked {
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      background: url(../img/checkmark-ico.svg) no-repeat center;
+      background-size: contain;
+    }
+
+    &:focus {
+      appearance: none;
+      outline: none;
+    }
+  }
+}
+
+.pollResults {
+  .pollChoice-label input, .pollChoice-label {
+    cursor: default;
+  }
+
+  .pollChoice-label {
+    &:first-child  {
+      border-bottom: none;
+    }
+  }
+}
+
+.resultsCont {
+  display: block;
+  margin-left: 1.8em;
+  margin-bottom: .5em;
+  // font-size: 1.4em;
+  p {
+    font-style: normal;
+  }
+}
+
+.resultsTrack {
+  position: relative;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #DEDEDE;
+  font-size: 1.25em;
+}
+
+.resultsBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  background-color: #0d68cf;
+}
+
+.resultsPct {
+  position: relative;
+  z-index: 2;
+  margin-top: 2px;
+  padding: 0 10px;
+  font-size: .75em;
+  font-weight: 700;
+  text-align: right;
+  color: #fff;
+}
+
+.resultsVotes {
+  font-size: .75em;
+  text-align: center;
+}

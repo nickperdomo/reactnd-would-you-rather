@@ -80,37 +80,3 @@
   font-weight: bold;
   line-height: .9em;
 }
-
-// Poll styling
-.pollChoice-label {
-  position: relative;
-  margin-left: 1.25em;
-  padding: .4em 0;
-  user-select: none;
-  cursor: pointer;
-
-  &:first-child {
-    border-bottom: solid 1px #acacac;
-  }
-
-  input {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: -2.4em;
-    appearance: none;
-
-    &:checked {
-      display: inline-block;
-      width: 1.5em;
-      height: 1.5em;
-      background: url(../img/checkmark-ico.svg) no-repeat center;
-      background-size: contain;
-    }
-
-    &:focus {
-      appearance: none;
-      outline: none;
-    }
-  }
-}
