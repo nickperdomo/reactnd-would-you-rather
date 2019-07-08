@@ -20,5 +20,7 @@ export function formatQuestion(autherUser, user, question) {
     timestamp,
     optionOne,
     optionTwo,
+    optionOneVotes: question.optionOne.votes,
+    optionTwoVotes: question.optionTwo.votes,
   }
 }
