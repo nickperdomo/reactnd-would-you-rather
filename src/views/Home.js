@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './Home.scss'
 import QuestionToggle from '../components/QuestionToggle'
 import QuestionCard from '../components/QuestionCard'
+import { hasAnswered } from './shared'
 
 class Home extends Component {
   state = {
@@ -51,23 +52,13 @@ class Home extends Component {
         <ul className='questionList'>
           {filteredQuestions.map((question) => (
             <li key={question.id}>
-              <QuestionCard id={question.id} mode='question'/>
+              <QuestionCard id={question.id} />
             </li>
           ))}
         </ul>
       </main>
     )
   }
-}
-
-function hasAnswered(authedUser, question) {
-  const votes = [
-    ...question.optionOne.votes,
-    ...question.optionTwo.votes,
-  ]
-  const answered = votes.indexOf(authedUser) === -1 ? false : true
-
-  return answered
 }
 
 function mapStateToProps({authedUser, questions}) {
