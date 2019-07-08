@@ -3,13 +3,13 @@
 }
 
 nav {
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   width: 100%;
-  position: fixed;
   background-color: #1A3657;
   color: #fff;
-
 }
 
 .navLink {
