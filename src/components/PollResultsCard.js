@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helpers'
 
 class PollResultsCard extends Component {
-   
     render() {
-      const authedUser = this.props.authedUser
+      const { 
+        authedUser,
+        users,
+      } = this.props
       const {
         name,
         id,
@@ -15,8 +17,10 @@ class PollResultsCard extends Component {
         optionOne,
         optionTwo,
       } = this.props.question
-      // TODO: Capture selectedChoice
-      const selectedChoice = 'optionOne'
+      
+      const selectedChoice = users[authedUser].answers[id]
+      //TODO: Capture votes and calculate percentages
+    
       
       return (
         <div className='qContainer'>
@@ -27,7 +31,7 @@ class PollResultsCard extends Component {
               <p>
                 <span className='qIntro'>Would you rather&hellip;</span>
               </p>
-              <form className='poll'>
+              <form className='pollResults' readOnly>
                 <label className='qOption pollChoice-label'>
                   <input
                     type='radio'
@@ -38,6 +42,13 @@ class PollResultsCard extends Component {
                   />
                   {`${optionOne.text}?`}
                 </label>
+                <div className='resultsCont'>
+                  <div className='resultsTrack'>
+                    <div className='resultsPct' style={{width: '40%'}}>100%</div>
+                    <div className='resultsBar' style={{width: '40%'}}></div>
+                  </div>
+                  <p className='resultsVotes'>3/3 votes</p>
+                </div>
                 <label className='qOption pollChoice-label'>
                   <input
                     type='radio'
@@ -48,6 +59,13 @@ class PollResultsCard extends Component {
                   />
                   {`${optionTwo.text}?`}
                 </label>
+                <div className='resultsCont'>
+                  <div className='resultsTrack'>
+                    <div className='resultsPct' style={{width: '80%'}}>100%</div>
+                    <div className='resultsBar' style={{width: '80%'}}></div>
+                  </div>
+                  <p className='resultsVotes'>3/3 votes</p>
+                </div>
               </form>
             </div>
           </div>
@@ -60,6 +78,7 @@ function mapStateToProps({authedUser, users, questions}, {id}) {
   const question = questions[id]
   return {
     authedUser,
+    users,
     question: formatQuestion(authedUser, users[question.author], question),
   }
 }
