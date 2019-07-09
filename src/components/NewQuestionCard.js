@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import { handleAddQuestion } from '../actions/questions'
 import './NewQuestionCard.scss'
 
@@ -36,7 +37,8 @@ class NewQuestionCard extends Component {
        optionTwoText,
        author: authedUser,
      }))
-     //TODO: Redirect to home
+
+     this.props.history.replace('/questions')
     }
     
     render() {
@@ -48,40 +50,44 @@ class NewQuestionCard extends Component {
       const isDisabled = optionOneText.length > 0 && optionTwoText.length > 0
 
       return (
-        <div className='qContainer newQ'>
-          <div className='qBubble'> 
-            <p>
-              <span className='qIntro'>Would you rather&hellip;</span>
-            </p>
-            <form className='newQForm'>
-              <input
-                type='text'
-                name='optionOneText'
-                placeholder='first option'
-                autoComplete='off'
-                value={this.state.optionOneText}
-                onChange={this.handleOptionInput}
-              />
-              <span className='qOptionOr'>or</span>
-              <input
-                type='text'
-                name='optionTwoText'
-                placeholder='second option'
-                autoComplete='off'
-                value={this.state.optionTwoText}
-                onChange={this.handleOptionInput}
-              />
-            <button
-              type='submit'
-              className='qBtn'
-              disabled={!isDisabled}
-              onClick={this.handleCreate}
-              >
-                Create
-              </button>
-            </form>
+        <main>
+          <h1 className='viewTitle'>Create A Question</h1>
+          <div className='qContainer newQ'>
+            <div className='qBubble'> 
+              <p>
+                <span className='qIntro'>Would you rather&hellip;</span>
+              </p>
+              <form className='newQForm'>
+                <input
+                  type='text'
+                  name='optionOneText'
+                  placeholder='first option'
+                  autoComplete='off'
+                  value={this.state.optionOneText}
+                  onChange={this.handleOptionInput}
+                />
+                <span className='qOptionOr'>or</span>
+                <input
+                  type='text'
+                  name='optionTwoText'
+                  placeholder='second option'
+                  autoComplete='off'
+                  value={this.state.optionTwoText}
+                  onChange={this.handleOptionInput}
+                />
+              <button
+                type='submit'
+                className='qBtn'
+                disabled={!isDisabled}
+                onClick={this.handleCreate}
+                >
+                  Create
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
+        </main>
+        
       )
   }
 }
@@ -94,4 +100,4 @@ function mapStateToProps({authedUser, users}) {
 }
 
 
-export default connect(mapStateToProps)(NewQuestionCard)
+export default withRouter(connect(mapStateToProps)(NewQuestionCard))
