@@ -1,0 +1,25 @@
+.newQ {
+  display: block;
+  width: 100%;
+}
+
+.newQForm {
+  input {
+    display: block;
+    width: 100%;
+    padding: .5em;
+    font-size: 1.1em;
+    font-style: normal;
+    font-weight: 700;
+  }
+}
+
+.newQ .qIntro {
+  margin-bottom: 8px;
+}
+
+.newQ .qOptionOr {
+  display: block;
+  margin-bottom: 3px;
+  text-align: center;
+}
