@@ -48,13 +48,16 @@ class Home extends Component {
           questionFilter={this.state.questionFilter}
           handleQuestionFilter={this.handleQuestionFilter} 
         />
-        <ul className='questionList'>
-          {filteredQuestions.map((question) => (
-            <li key={question.id}>
-              <QuestionCard id={question.id} />
-            </li>
-          ))}
-        </ul>
+        {filteredQuestions.length !== 0
+          ? <ul className='questionList'>
+              {filteredQuestions.map((question) => (
+                <li key={question.id}>
+                  <QuestionCard id={question.id} />
+                </li>
+              ))}
+            </ul>
+          : <p className='questionList-message'>🎉 You've answered every question!</p>
+        }
       </main>
     )
   }
