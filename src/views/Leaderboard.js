@@ -28,7 +28,7 @@ class Leaderboard extends Component {
         <ul className='leaderList'>
           {usersByRank.map( (user, index) => (
             <li key={user.id}>
-              <LeaderCard user={user} rank={index}/>
+              <LeaderCard user={user} rank={index + 1}/>
             </li>
           ))}
         </ul> 
