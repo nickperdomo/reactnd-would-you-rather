@@ -23,7 +23,7 @@ class QuestionCard extends Component {
         <div>
           <span className='qAuthor'>{name} asks:</span>
           <div className='qBubble'> 
-            <p>
+            <p className='qBlurb'>
               <span className='qIntro'>Would you rather&hellip;</span>
               <span className='qOption'>
                 {optionOne.text} 
