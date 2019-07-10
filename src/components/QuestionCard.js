@@ -7,11 +7,9 @@ import './QuestionCard.scss'
 
 class QuestionCard extends Component {
   render() {
-    const authedUser = this.props.authedUser
     const {
       name,
       id,
-      // author,
       avatar,
       optionOne,
       optionTwo,

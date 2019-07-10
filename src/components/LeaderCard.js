@@ -5,7 +5,6 @@ import './LeaderCard.scss'
 class LeaderCard extends Component {
   render() {
     const {
-      id,
       name,
       avatarURL,
       answerCount,

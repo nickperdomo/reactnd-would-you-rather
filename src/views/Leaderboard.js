@@ -20,7 +20,6 @@ class Leaderboard extends Component {
         get totalScore() { return this.answerCount + this.questionCount}
       }
     }).sort((a,b) => (a.totalScore < b.totalScore) ? 1 : -1)
-    // console.log(usersByRank)
 
     return (
       <main>
@@ -36,7 +35,6 @@ class Leaderboard extends Component {
     )
   }
 }
-
 
 
 function mapStateToProps({users}) {

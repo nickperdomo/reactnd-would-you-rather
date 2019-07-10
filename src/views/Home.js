@@ -34,8 +34,7 @@ class Home extends Component {
         ? answered.push(questions[id])
         : unanswered.push(questions[id])
     })
-    // console.log("answered: ", answered)
-    // console.log("unanswered: ", unanswered)
+
     this.state.questionFilter === 'unanswered'
       ? filteredQuestions = unanswered
       : filteredQuestions = answered

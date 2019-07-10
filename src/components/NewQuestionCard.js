@@ -24,7 +24,6 @@ class NewQuestionCard extends Component {
       const {
        dispatch,
        authedUser,
-       users,
       } = this.props
       const {
         optionOneText,
@@ -32,7 +31,6 @@ class NewQuestionCard extends Component {
       } = this.state
 
       dispatch(handleAddQuestion({
-      //  authedUser,
        optionOneText,
        optionTwoText,
        author: authedUser,
@@ -42,7 +40,6 @@ class NewQuestionCard extends Component {
     }
     
     render() {
-      const authedUser = this.props.authedUser
       const {
         optionOneText,
         optionTwoText,
