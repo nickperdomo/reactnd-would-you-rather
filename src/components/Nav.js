@@ -35,7 +35,7 @@ class Nav extends Component {
             <ul>
               <li key='home'>
                 <NavLink 
-                  exact to="/questions"
+                  exact to="/"
                   className="navLink"
                   activeClassName="navActiveView"
                   >
