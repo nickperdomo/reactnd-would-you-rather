@@ -56,7 +56,9 @@ class Home extends Component {
                 </li>
               ))}
             </ul>
-          : <p className='questionList-message'>🎉 You've answered every question!</p>
+          : <p className='questionList-message'>
+              <span role='img' aria-label='party blower'>🎉</span> You've answered every question!
+            </p>
         }
       </main>
     )
