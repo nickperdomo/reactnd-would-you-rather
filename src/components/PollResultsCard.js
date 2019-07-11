@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { withRouter } from 'react-router-dom'
 import { formatQuestion } from '../utils/helpers'
 
 class PollResultsCard extends Component {
@@ -27,7 +26,6 @@ class PollResultsCard extends Component {
       const {
         name,
         id,
-        // author,
         avatar,
         optionOne,
         optionTwo,
