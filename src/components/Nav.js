@@ -23,65 +23,59 @@ class Nav extends Component {
     const {
       authedUser,
       users,
-      location,
     } = this.props
 
     return (
-      <>
-      {location.pathname.match('/signin')
-        ? null
-        : <nav className='nav'>
-          <div className='navInner'>
-            <ul>
-              <li key='home'>
-                <NavLink 
-                  exact to="/"
-                  className="navLink"
-                  activeClassName="navActiveView"
+      <nav className='nav'>
+        <div className='navInner'>
+          <ul>
+            <li key='home'>
+              <NavLink 
+                exact to="/"
+                className="navLink"
+                activeClassName="navActiveView"
+                >
+                  Home
+              </NavLink>
+            </li>
+            <li key='newQuestion'>
+              <NavLink 
+                exact to="/add"
+                className="navLink"
+                activeClassName="navActiveView"
+                >
+                  New Question
+              </NavLink>
+            </li>
+            <li key='leaderboard'>
+              <NavLink 
+                exact to="/leaderboard"
+                className="navLink"
+                activeClassName="navActiveView"
+                >
+                  Leaderboard
+              </NavLink>
+            </li>
+          </ul>
+          <div className='signOutContainer'>
+            {authedUser !== '' && authedUser !== null
+              ? <>
+                  <button 
+                    className='navLink'
+                    onClick={this.handleSignout}
                   >
-                    Home
-                </NavLink>
-              </li>
-              <li key='newQuestion'>
-                <NavLink 
-                  exact to="/add"
-                  className="navLink"
-                  activeClassName="navActiveView"
-                  >
-                    New Question
-                </NavLink>
-              </li>
-              <li key='leaderboard'>
-                <NavLink 
-                  exact to="/leaderboard"
-                  className="navLink"
-                  activeClassName="navActiveView"
-                  >
-                    Leaderboard
-                </NavLink>
-              </li>
-            </ul>
-            <div className='signOutContainer'>
-              {authedUser !== '' && authedUser !== null
-                ? <>
-                    <button 
-                      className='navLink'
-                      onClick={this.handleSignout}
-                    >
-                      Sign Out
-                    </button>
-                    <img 
-                      src={users[authedUser].avatarURL}
-                      alt={`${users[authedUser].name}'s avatar`} 
-                    />
-                  </>
-                : null
-              }
-            </div>
+                    Sign Out { users[authedUser].name.substring(0, users[authedUser].name.indexOf(' ')) }
+                  </button>
+                  <img 
+                    src={users[authedUser].avatarURL}
+                    alt={`${users[authedUser].name}'s avatar`} 
+                  />
+                </>
+              : null
+            }
+          </div>
         </div>
       </nav>
-      }
-      </>
     )
   }
 }
