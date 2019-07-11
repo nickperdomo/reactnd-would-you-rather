@@ -48,15 +48,12 @@ nav {
 }
 
 .signOutContainer {
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
   margin-left: auto;
   padding-right: 13%;
   line-height: var(--navHeight);
-
-  a {
-    display: flex;
-    justify-items: flex-end;
-    align-items: center;
-  }
 
   img {
     display: inline-block;
@@ -65,6 +62,21 @@ nav {
     margin-left: 10px;
     border-radius: 50%;
   }
+}
+
+button.navLink {
+  padding: 0;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-size: 14.4px;
+  color: #fff;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
 }
 
 .navActiveView {

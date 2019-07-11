@@ -21,8 +21,8 @@ class Nav extends Component {
 
   render() {
     const {
-      // authedUser,
-      // users,
+      authedUser,
+      users,
       location,
     } = this.props
 
@@ -62,19 +62,21 @@ class Nav extends Component {
               </li>
             </ul>
             <div className='signOutContainer'>
-                {/* <Link 
-                  to="/signin"
-                  className="navLink"
-                  >
-                    <span>Sign out</span>
-                    <img src={users[authedUser].avatarURL} alt={`${users[authedUser].name}'s avatar`} />
-                </Link>
-                <Route path="/signin" component={SignIn} /> */}
-              <button
-                onClick={this.handleSignout}
-              >
-                Sign Out
-              </button>   
+              {authedUser !== '' && authedUser !== null
+                ? <>
+                    <button 
+                      className='navLink'
+                      onClick={this.handleSignout}
+                    >
+                      Sign Out
+                    </button>
+                    <img 
+                      src={users[authedUser].avatarURL}
+                      alt={`${users[authedUser].name}'s avatar`} 
+                    />
+                  </>
+                : null
+              }
             </div>
         </div>
       </nav>
