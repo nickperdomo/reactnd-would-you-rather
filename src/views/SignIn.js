@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router'
 import './SignIn.scss'
+import questionAvatarIco from '../img/questionAvatar.svg'
 import { setAuthedUser } from '../actions/authedUser'
 
 class SignIn extends Component {
   state = {
     redirectToReferrer: false,
     selectedUserId: '',
-    // selectedUserId: Object.keys(this.props.users)
-    //   .sort((a,b) => (a.name > b.name) ? 1 : -1)[0]
   }
 
   handleUserSelect = (e) => {
@@ -46,6 +45,8 @@ class SignIn extends Component {
       selectedUserId
     } = this.state
 
+    const isDisabled = selectedUserId === ''
+
     const { from } = this.props.location.state || { from: { pathname: '/' } }
 
     const usersByName = usersIds.map( id => {
@@ -66,31 +67,35 @@ class SignIn extends Component {
         <h1 className='viewTitle'>Would You Rather?</h1>
         <div className='qContainer leaderContainer signInCont'>
           <div className='leaderAvatarCont'>
-            {selectedUserId !== ''
-              ?  <img 
-                  className='qAvatar leaderAvatar'
+            {selectedUserId !== '' && selectedUserId !== null
+              ? <img 
+                  className='qAvatar leaderAvatar leaderRank-default'
                   src={users[selectedUserId].avatarURL}
                   alt={`${users[selectedUserId].name}'s avatar`} 
-                 />
-              : null
-            }           
+              />
+              : <img 
+                  className='qAvatar leaderAvatar leaderRank-default'
+                  src={questionAvatarIco}
+                  alt='Unknown avatar'
+                />
+            }
           </div>
-          <div className='qBubble'> 
+          <div className='qBubble signinPanel'> 
             <p className='qIntro'>Select a user to play!</p>
             <form>
               <select
                 className='userSelect'
-                // value='empty'
-                defaultValue='empty'
+                defaultValue=''
                 onChange={this.handleUserSelect}
               >
-                <option key={'empty'} value='empty'></option>
+                <option key={'empty'} value=''></option>
                 {usersByName.map( user => (
                   <option key={user.id} value={user.id}>{user.name}</option>
                 ))}
               </select>
               <button
-                className='siginBtn'
+                className='qBtn siginBtn'
+                disabled={isDisabled}
                 onClick={this.handleSignIn}
               >
                 Sign In
