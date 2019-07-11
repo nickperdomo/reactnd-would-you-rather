@@ -7,14 +7,13 @@ import { setAuthedUser } from '../actions/authedUser'
 class SignIn extends Component {
   state = {
     redirectToReferrer: false,
-    selectedUserId: Object.keys(this.props.users)
-      .sort((a,b) => (a.name > b.name) ? 1 : -1)[0]
+    selectedUserId: '',
+    // selectedUserId: Object.keys(this.props.users)
+    //   .sort((a,b) => (a.name > b.name) ? 1 : -1)[0]
   }
 
   handleUserSelect = (e) => {
     const userId = e.target.value
-    console.log(this.state.selectedUserId)
-    console.log(userId)
     this.setState(() => ({
       selectedUserId: userId
     }))
@@ -27,7 +26,7 @@ class SignIn extends Component {
       history,
     } = this.props
     const selectedUserId = this.state.selectedUserId
-    console.log(selectedUserId)
+
     dispatch(setAuthedUser(selectedUserId))
     this.setState(() => ({
       redirectToReferrer: true
@@ -67,27 +66,32 @@ class SignIn extends Component {
         <h1 className='viewTitle'>Would You Rather?</h1>
         <div className='qContainer leaderContainer signInCont'>
           <div className='leaderAvatarCont'>
-            {/* <img 
-              className='qAvatar leaderAvatar'
-              src={users[selectedUserId].avatarURL}
-              alt={`${users[selectedUserId].name}'s avatar`} 
-            /> */}
+            {selectedUserId !== ''
+              ?  <img 
+                  className='qAvatar leaderAvatar'
+                  src={users[selectedUserId].avatarURL}
+                  alt={`${users[selectedUserId].name}'s avatar`} 
+                 />
+              : null
+            }           
           </div>
           <div className='qBubble'> 
             <p className='qIntro'>Select a user to play!</p>
             <form>
               <select
                 className='userSelect'
-                value={selectedUserId}
+                // value='empty'
+                defaultValue='empty'
                 onChange={this.handleUserSelect}
               >
+                <option key={'empty'} value='empty'></option>
                 {usersByName.map( user => (
                   <option key={user.id} value={user.id}>{user.name}</option>
                 ))}
               </select>
               <button
                 className='siginBtn'
-                onSubmit={this.handleSignIn}
+                onClick={this.handleSignIn}
               >
                 Sign In
               </button>

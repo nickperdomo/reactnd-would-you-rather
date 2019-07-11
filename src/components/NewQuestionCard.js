@@ -36,7 +36,7 @@ class NewQuestionCard extends Component {
        author: authedUser,
      }))
 
-     this.props.history.replace('/questions')
+     this.props.history.replace('/')
     }
     
     render() {
