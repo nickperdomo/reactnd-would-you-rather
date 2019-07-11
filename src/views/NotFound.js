@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './NotFound.scss'
 
 class NotFound extends Component {
   render() {
     return (
       <div>
-        NotFound View
+        <p>This page does not exist.</p>
+        <Link to='/'>Go Home</Link>
       </div>
     )
   }
