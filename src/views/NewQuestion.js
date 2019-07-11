@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './NewQuestion.scss'
 import NewQuestionCard from '../components/NewQuestionCard'
 
 class NewQuestion extends Component {

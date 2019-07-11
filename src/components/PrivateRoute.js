@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const PrivateRoute = ( {component: Component, authedUser, ...rest} ) => (
   <Route {...rest} render={(props) => (
-    // isAuthenticated === true
     authedUser !== null
       ? <Component {...props} />
       : <Redirect to={{
@@ -15,7 +14,6 @@ const PrivateRoute = ( {component: Component, authedUser, ...rest} ) => (
 )
 
 const mapStateToProps = ({ authedUser }) => ({
-  // isAuthenticated: authedUser !== null
   authedUser,
 })
 

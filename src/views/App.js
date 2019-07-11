@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Route, Redirect, Switch, Link, withRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
-import LoadingBar from 'react-redux-loading'
+// import LoadingBar from 'react-redux-loading'
 import { handleInitalData } from '../actions/shared'
 import PrivateRoute from '../components/PrivateRoute'
 import Nav from '../components/Nav'
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   render() {
-    const authedUser = this.props.authedUser
+    // const authedUser = this.props.authedUser
 
     return (
       <div className="App">  

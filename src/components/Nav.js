@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, withRouter } from 'react-router-dom'
-import { NavLink, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './Nav.scss'
 import { setAuthedUser } from '../actions/authedUser'
 
@@ -21,8 +21,8 @@ class Nav extends Component {
 
   render() {
     const {
-      authedUser,
-      users,
+      // authedUser,
+      // users,
       location,
     } = this.props
 

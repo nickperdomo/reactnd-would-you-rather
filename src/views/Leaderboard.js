@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import './Leaderboard.scss'
 import '../components/LeaderCard'
 import LeaderCard from '../components/LeaderCard';
 
