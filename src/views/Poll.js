@@ -5,6 +5,7 @@ import { hasAnswered } from './shared'
 import './Poll.scss'
 import PollCard from '../components/PollCard'
 import PollResultsCard from '../components/PollResultsCard'
+import NotFound from './NotFound';
 
 
 class Poll extends Component {
@@ -16,9 +17,11 @@ class Poll extends Component {
       questions
     } = this.props
     
+    if (!questions[question_id]) {
+      return <NotFound />
+    }
+    
     return (
-      // TODO: Unanswered = show PollCard
-      //       Answered = show PollResultsCard
       hasAnswered(authedUser, questions[question_id]) !== true
         ? <PollCard id={question_id} />
         : <PollResultsCard id={question_id} />
@@ -35,4 +38,3 @@ function mapStateToProps({authedUser, questions}) {
 }
 
 export default withRouter(connect(mapStateToProps)(Poll))
-// export default withRouter(Poll)

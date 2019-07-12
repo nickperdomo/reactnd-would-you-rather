@@ -30,7 +30,6 @@ class SignIn extends Component {
     this.setState(() => ({
       redirectToReferrer: true
     }))
-     history.replace('/')
   }
   
   render() {
