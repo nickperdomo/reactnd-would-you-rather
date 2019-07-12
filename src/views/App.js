@@ -31,13 +31,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <LoadingBar
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            backgroundColor: '#0d68cf'
-        }} /> 
+        <LoadingBar className='loadingBar' /> 
         {loading
           ? null
           : <>

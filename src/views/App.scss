@@ -11,3 +11,11 @@ main {
 a:any-link {
   text-decoration: none;
 }
+
+.loadingBar {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  height: 3px;
+  background-color: #0d68cf;
+}
