@@ -2,7 +2,7 @@ import {
   RECEIVE_QUESTIONS,
   ADD_ANSWER,
   ADD_QUESTION,
-} from '../actions/questions'
+} from '../actions/types'
 
 
 export default function questions(state = {}, action) {

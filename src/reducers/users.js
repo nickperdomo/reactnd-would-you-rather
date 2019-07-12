@@ -1,5 +1,5 @@
-import { RECEIVE_USERS } from '../actions/users'
-import { ADD_ANSWER } from '../actions/questions'
+import { RECEIVE_USERS } from '../actions/types'
+import { ADD_ANSWER } from '../actions/types'
 
 export default function users(state = {}, action) {
   switch (action.type) {
